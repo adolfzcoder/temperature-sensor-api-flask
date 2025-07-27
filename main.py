@@ -8,15 +8,16 @@ app = Flask(__name__)
 @app.after_request
 @app.after_request
 def after_request(response):
+    # To avoid errors related to "Permission denied" you have to add urls that might be using the app
     origin = request.headers.get('Origin')
     allowed_origins = [
         'https://adolfs-room-temperature.learnnamibia.com',
-        'http://localhost:3000',  # For local development
+        'http://localhost:3000',  
         'http://127.0.0.1:3000',
         'http://localhost:8080',
         'http://127.0.0.1:8080',
         'file://',  # For local HTML files
-        '*'  # Allow all origins (use with caution in production)
+        '*'  # Allow all origins 
     ]
     
     response.headers['Access-Control-Allow-Origin'] = '*'
