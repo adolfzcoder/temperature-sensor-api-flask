@@ -17,7 +17,7 @@ def after_request(response):
         'http://localhost:8080',
         'http://127.0.0.1:8080',
         'file://',  # For local HTML files
-        '*'  # Allow all origins 
+        '*'  # Allow all origins [not ideal for production]
     ]
     
     response.headers['Access-Control-Allow-Origin'] = '*'
